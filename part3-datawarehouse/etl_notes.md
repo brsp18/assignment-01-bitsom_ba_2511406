@@ -7,7 +7,7 @@ Resolution: Applied title-case normalisation to all category values using
 str.title(), so 'electronics' and 'Electronics' both became 'Electronics'.
 
 
-### Decision 2 — Resolving NULL store_city Values
+### Decision 2 — Resolving NULL Values for store_city 
 Problem: Some rows had NULL values in the `store_city` column. Since dim_store
 requires store_city NOT NULL, these rows would either fail on insert action.
 
