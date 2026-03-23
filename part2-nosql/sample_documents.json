@@ -4,6 +4,7 @@
 [{
   "category": "Electronics",
   "product_name": "Phone",
+  "price_usd": 500,
   "specs": {
     "processor": "Qualcomm Snapdragon 8",
     "memory_gb": 6,
@@ -12,7 +13,6 @@
     "resolution": "1080 x 2340",
     "battery_life_hours": 10,
     "warranty_years": 2,
-    "price_usd": 50000,
     "available_colors": ["Silver", "Black"]
         }
 },
@@ -20,14 +20,15 @@
 
 {
   "category": "Clothing",
+  "product_name": "Girls Pink Top",
+  "price_usd": 50,
   "gender": "Female",
   "age_range": "10yrs-12yrs",
   "specs": {
-  "size": "Medium",
-  "color": "Pink",
-  "fit": "Regular",
-  "availability": ["Online-Only", "InStore"],
-  "price_usd": 50
+    "size": "Medium",
+    "color": "Pink",
+    "fit": "Regular",
+    "availability": ["Online-Only", "InStore"]
   }
   
 },
@@ -36,12 +37,12 @@
 {
   "category": "Groceries",
   "product_name": "Chips",
+  "price_usd": 10,
   "manufactured_date": "2026-01-01",
   "expiry_date": "2026-12-31",
   "size": "Family size",
   "specs":{
     "ingredients": ["Potatoes","Oil","Salt"],
-  "allergens": "None",
-  "price_usd": 10
+    "allergens": []
   }
 }]
