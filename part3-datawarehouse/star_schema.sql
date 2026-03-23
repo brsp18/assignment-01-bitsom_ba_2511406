@@ -1,5 +1,18 @@
 -- CREATING TABLES 
 
+CREATE TABLE fact_sales (
+    transaction_id  VARCHAR(20)     NOT NULL UNIQUE,
+    store_id        INT             NOT NULL,
+    product_id      INT             NOT NULL,
+    customer_id     VARCHAR(20)     NOT NULL,
+    units_sold      INT             NOT NULL CHECK (units_sold > 0),
+    unit_price      NUMERIC(12,2)   NOT NULL,
+    revenue         NUMERIC(15,2)   AS (units_sold * unit_price) STORED,
+    FOREIGN KEY (store_id)   REFERENCES dim_store(store_id),
+    FOREIGN KEY (product_id) REFERENCES dim_product(product_id),
+    FOREIGN KEY (transaction_id) REFERENCES dim_date(transaction_id)
+);
+
 CREATE TABLE dim_store (
     store_id    INT             PRIMARY KEY AUTO_INCREMENT,
     store_name  VARCHAR(50)     NOT NULL UNIQUE,
@@ -23,21 +36,10 @@ CREATE TABLE dim_date (
     txn_year      INT             NOT NULL
 );
  
-CREATE TABLE fact_sales (
-    transaction_id  VARCHAR(20)     NOT NULL UNIQUE,
-    store_id        INT             NOT NULL,
-    product_id      INT             NOT NULL,
-    customer_id     VARCHAR(20)     NOT NULL,
-    units_sold      INT             NOT NULL CHECK (units_sold > 0),
-    unit_price      NUMERIC(12,2)   NOT NULL,
-    revenue         NUMERIC(15,2)   AS (units_sold * unit_price) STORED,
-    FOREIGN KEY (store_id)   REFERENCES dim_store(store_id),
-    FOREIGN KEY (product_id) REFERENCES dim_product(product_id),
-    FOREIGN KEY (transaction_id) REFERENCES dim_date(transaction_id)
-);
 
 
--- INSERTING DATA INTO TABLES
+
+-- INSERT STATEMENTS 
 -- DIM_STORE
 INSERT INTO dim_store (store_id, store_name, store_city) VALUES (1, 'Bangalore MG', 'Bangalore');
 INSERT INTO dim_store (store_id, store_name, store_city) VALUES (2, 'Chennai Anna', 'Chennai');
